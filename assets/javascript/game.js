@@ -4,12 +4,13 @@ var losses = 0;
 var guessesLeft = 9;
 var lettersGuessed = [];
 var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var answer = '';
 
 // Randomly generate the answer letter
-// function randomIndex(choiceList) {
-// 	var randIndex = Math.floor(Math.random()*choiceList.length);
-// 	return choiceList[randIndex]
-// }
+function randomIndex(choiceList) {
+	var randIndex = Math.floor(Math.random()*choiceList.length);
+	return choiceList[randIndex]
+}
 
 
 function updateScore (won, lost, remain) {
@@ -35,6 +36,9 @@ function resetGame () {
 	lettersGuessed = [];	// reset letters guessed
 	updateScore(wins, losses, guessesLeft);	// update display score
 	displayGuesses(lettersGuessed);	// update displayed letters guessed
+	answer = randomIndex(letters);
+	// console.log(answer);
+
 }
 
 function resetAll() {
@@ -44,7 +48,9 @@ function resetAll() {
 }
 
 $(document).ready(function() {
-	var answer = letters[Math.floor(Math.random()*letters.length)];	// randomly select a letter
+	// var answer = letters[Math.floor(Math.random()*letters.length)];	// randomly select a letter
+	answer = randomIndex(letters);
+	// console.log(answer)
 	document.onkeyup = function(event) {
 		var userGuess = event.key;
 		userGuess = userGuess.toUpperCase();	// make the guess upper case

@@ -48,6 +48,7 @@ function resetAll() {
 }
 
 $(document).ready(function() {
+	updateScore(wins, losses, guessesLeft);
 	// var answer = letters[Math.floor(Math.random()*letters.length)];	// randomly select a letter
 	answer = randomIndex(letters);
 	// console.log(answer)

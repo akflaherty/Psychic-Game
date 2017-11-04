@@ -57,7 +57,7 @@ $(document).ready(function() {
 		// check if the user entered a letter
 		if (letters.indexOf(userGuess) < 0) {
 			alert('Invalid choice of letter.');
-		} else {
+		} else if (lettersGuessed.indexOf(userGuess) < 0) {	// checks if letter was already guessed
 			if (userGuess === answer) {
 				// user guessed correctly
 				wins = wins + 1;	// increment wins
